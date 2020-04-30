@@ -9,12 +9,11 @@ const ingredients = [
   'Приправы',
 ];
 
-const strToIns = () =>
-  ingredients.forEach(item => {
-    const eachElement = document.createElement('li');
-    console.log(eachElement);
-    eachElement.innerHTML = item;
-    return document.getElementById('ingredients').appendChild(eachElement);
-  });
+const list = document.querySelector('#ingredients');
+const items = ingredients.map(ingredient => {
+  const item = document.createElement('li');
+  item.textContent = ingredient;
+  return item;
+});
 
-strToIns(ingredients);
+list.append(...items);
